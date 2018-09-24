@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from .models import *
 
-# Create your views here.
+def postagem(request, template_name='index.html'):
+    postagem = Postagem.objects.all()
+    postagens = {'lista': postagem}
+    return render(request, template_name, postagens)
